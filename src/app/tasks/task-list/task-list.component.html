@@ -1,0 +1,27 @@
+
+<button mat-raised-button color="accent" (click)="unDo()" *ngIf="canUndo" class="undo-delete">Undo</button>
+<section class="tasks">
+    <mat-spinner *ngIf="!tasksPresent"></mat-spinner>
+    <div  #taskDetail (click)="editTask(task)" class="task-item" *ngFor="let task of tasksDisplayed">
+        <h1 *ngIf="tasksPresent"> {{task?.name}} </h1>
+
+        <p *ngIf="tasksPresent"><span class="title">Task Status :</span> 
+            <span [style]="task.status.startsWith('SUCCESS') ? 'background-color: green' : 'background-color: yellow'">{{ task.status }}</span>
+        </p>
+
+        <p *ngIf="tasksPresent"><span class="title">Task difficulty :</span> 
+            <span [style]="task.difficulty.startsWith('HIGH') ? (task.difficulty.startsWith('MEDIUM') ? 'background-color: cyan' : 'background-color: red') : 'background-color: yellow' ">{{ task.difficulty }}</span>
+        </p>
+       
+    </div>
+</section>
+<mat-paginator *ngIf="tasksPresent" [length]="tasks.length"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          (page)="handlePageEvent($event)"
+          [showFirstLastButtons]="true"
+          aria-label="Select page">
+</mat-paginator>
+
+<router-outlet></router-outlet>

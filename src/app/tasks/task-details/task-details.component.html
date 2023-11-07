@@ -1,0 +1,71 @@
+<!-- <app-navbar [userName]="username" [userIn]="userIn"></app-navbar> -->
+
+<section class="task-detail">
+    <mat-spinner *ngIf="!tasksPresent"></mat-spinner>
+    <table *ngIf="tasksPresent && !Small">
+        <tr>
+            <th>name</th>
+            <th>description</th>
+            <th>userId</th>
+            <th>status</th>
+            <th>startDate</th>
+            <th>dueDate</th>
+            <th>level</th>
+            <th>difficulty</th>
+        </tr>
+        <tr>
+            <td> {{task.name}} </td>
+            <td> {{task.description}} </td>
+            <td> {{task.userId}} </td>
+            <td> {{task.status}} </td>
+            <td> {{task.startDate.toDate() | date}} </td>
+            <td> {{task.dueDate.toDate() | date}} </td>
+            <td> {{task.level}} </td>
+            <td> {{task.difficulty}} </td>
+        </tr>
+    </table>
+
+    <table *ngIf="Small && tasksPresent">
+        <tr>
+            <th>data</th>
+            <th>value</th>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td>{{task.name}}</td>
+        </tr>
+        <tr>
+            <td>description</td>
+            <td>{{task.description}}</td>
+        </tr>
+        <tr>
+            <td>userId</td>
+            <td>{{task.userId}}</td>
+        </tr>
+        <tr>
+            <td>status</td>
+            <td>{{task.status}}</td>
+        </tr>
+        <tr>
+            <td>startDate</td>
+            <td>{{task.startDate.toDate() | date}}</td>
+        </tr>
+        <tr>
+            <td>dueDate</td>
+            <td>{{task.dueDate.toDate() | date}}</td>
+        </tr>
+        <tr>
+            <td>level</td>
+            <td>{{task.level}}</td>
+        </tr>
+        <tr>
+            <td>difficulty</td>
+            <td>{{task.difficulty}}</td>
+        </tr>
+    </table>
+
+    <button mat-raised-button color="warn" *ngIf="tasksPresent" (click)="deleteTask(task)" class="delete-task">Delete task</button>
+</section>
+
+<!-- <app-footer></app-footer> -->
+

@@ -1,0 +1,47 @@
+.even {
+    background-color: steelblue;
+    color: white;
+}
+
+.odd {
+    background-color: tomato;
+    color: white;
+}
+
+section.task-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8rem;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    // table-layout: fixed;
+    overflow: hidden;
+
+    tr {
+        height: 2rem;
+
+        th {
+            padding:0 2rem;
+            font-size: 1.5rem;
+            text-align: left;
+        }
+
+        td {
+            text-align: center;
+            overflow-wrap: break-word;
+            padding: 1rem;
+            background-color: steelblue;
+            color: white;
+    
+        }
+
+
+    }
+}
+

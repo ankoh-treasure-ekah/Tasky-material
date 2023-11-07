@@ -1,0 +1,28 @@
+section.add-task-section {
+    display: flex;
+    justify-content: center;
+}
+
+form.add-task {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color:black;
+    border-radius: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+
+    mat-form-field {
+        width: 80%;
+        
+    }
+}
+
+form.Xsmall {
+    width: 80% !important;
+}
+
+form.Small {
+    width: 400px !important;
+}

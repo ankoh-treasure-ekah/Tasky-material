@@ -1,0 +1,163 @@
+section.dashboard {
+    margin-top: 5rem;
+    width: 80%;
+    margin: 5rem auto;
+
+    div.myTasks {
+        margin-top: 5rem;
+        
+    }
+   
+
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        color: rgb(22, 181, 22);
+        line-height: 3rem;
+
+    
+    }
+
+    p {
+        font-size: 2rem;
+        padding-top: 2rem;
+        text-align: left;
+    }
+
+    div.task-btns {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 3rem;
+
+
+
+
+    }
+
+
+}
+
+
+
+
+/*** SIDE NAVBAR LOGIC *////
+
+mat-sidenav {
+    width: 50vw;
+    position: fixed;
+
+}
+
+.nav-container {
+    overflow: hidden;
+}
+
+.navbarWors {
+    width: 100%;
+    // background: black;
+    // height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+    .login-nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 39%;
+
+
+        li {
+            list-style-type: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: inline-block;
+            padding: 1.2rem;
+
+            a {
+                text-decoration: none;
+                color: black;
+
+                &:hover {
+                    color:rgb(22, 181, 22);
+                }
+            }
+
+            
+        }
+    }
+
+    .logoNav {
+        padding-top: 1rem;
+        font-size: 1.1rem;
+        gap: 2rem;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        color: white;
+        background: black;
+
+        width: 100%;
+
+        .logoNavFlex {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            // align-items: center;
+
+        }
+
+
+        #portFolio {
+            color: rgb(22, 181, 22);
+        }
+
+    }
+
+    .navLinks {
+        display: flex;
+        margin-top: 2rem;
+        gap: 2rem;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .navItem {
+            font-size: 1.1rem;
+            list-style: none;
+            margin: 0rem 2rem;
+            cursor: pointer;
+
+            .navLink {
+                text-decoration: none;
+                color: rgb(8, 4, 4);
+                text-transform: capitalize;
+                
+                &:hover {
+                    color:rgb(22, 181, 22);
+                }
+
+            }
+        }
+
+    }
+
+    .user-pane {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-right: 2rem;
+        align-items: center;
+
+        p.user-name {
+            padding-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+    }
+}

@@ -1,0 +1,39 @@
+<input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+<div class="container-profile">
+
+    <div class="user-pf-display">
+        <div mat-mini-fab color="none" [ngClass]="data.userImg ? 'userImage' : ''"
+                    matTooltip="user profile">
+                    <!-- <img [src]="userImg" alt="image"> -->
+                    <img *ngIf="data.userImg" [src]="data.userImg" alt="img">
+                    <mat-icon *ngIf="!data.userImg" class="icon-display" style="color: black; ">person</mat-icon>
+        </div>
+        <mat-icon *ngIf="src">arrow_forward</mat-icon>
+        <div *ngIf="src" mat-mini-fab color="none" class="userImage"
+                    matTooltip="user profile">
+                    <!-- <img [src]="userImg" alt="image"> -->
+                    <img [src]="src" alt="img">
+                    <mat-icon class="icon-display" style="color: black; ">person</mat-icon>
+        </div>
+
+        
+    </div>
+
+    <p>Ankoh Treasure</p>
+    <p>ankohtreasure1@gmail.com</p>
+
+    <img *ngIf="src" style="width: 80%; height: 80%;" [src]="src" alt="image">
+
+    {{ fileName || "" }}
+
+    <div class="action-buttons">
+        <button mat-raised-button extended>
+            <mat-icon>close</mat-icon>
+            cancel
+        </button>
+        <button color="primary" mat-raised-button extended (click)="fileUpload.click()">
+            <mat-icon>image</mat-icon>
+            upload
+        </button>
+    </div>
+</div>

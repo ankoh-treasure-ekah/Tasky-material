@@ -1,0 +1,59 @@
+
+
+<section class="add-task-section">
+    <form [ngClass]="{'Xsmall': Xsmall, 'Small': Small}" class="add-task" [formGroup]="addTaskForm" #formDate (ngSubmit)="saveTask()">
+        
+        <mat-form-field>
+            <mat-label>Task Name</mat-label>
+            <input maxlength="14" formControlName="taskName" type="text" matInput required placeholder="Task name" >
+            <mat-error>{{ taskNameValid() }}</mat-error>
+        </mat-form-field>
+
+        
+        <mat-form-field>
+            <mat-label>Task description</mat-label>
+            <textarea name="description"  cols="3" rows="3" matInput required formControlName="taskDescription"></textarea>
+            <mat-error>{{taskDecriptionValid()}}</mat-error>
+        </mat-form-field>
+
+       
+        <mat-form-field>
+            <mat-label>Task startDate</mat-label>
+            <input name="startDate" required matInput formControlName="taskStartDate" [matDatepicker]="picker" placeholder="MM/DD/YYYY">
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-error>{{startDateValid()}}</mat-error>
+        </mat-form-field>
+        
+        
+        <mat-form-field>
+            <mat-label>Task dueDate</mat-label>
+            <input name="dueDate" required matInput formControlName="taskDueDate" [matDatepicker]="picker1" placeholder="MM/DD/YYYY">
+            <mat-datepicker #picker1></mat-datepicker>
+            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-error>{{dueDateValid()}}</mat-error>
+        </mat-form-field>
+
+        
+
+        
+    
+        <!-- <select  name="difficulty" id="difficulty">
+            <option value="high">high</option>
+            <option value="medium">medium</option>
+            <option value="standard" selected>standard</option>
+        </select> -->
+
+        <mat-form-field>
+            <mat-label>Task Priority</mat-label>
+            <mat-select [(value)]="task.difficulty" required formControlName="taskDifficulty">
+                <mat-option *ngFor="let task of taskDifficulty" [value]="task">{{task}}</mat-option>
+            </mat-select>
+            <mat-error>{{taskDifficultyValid()}}</mat-error>
+        </mat-form-field>
+
+
+        <button type="submit" mat-raised-button color="primary">Add task</button>
+    </form>
+</section>

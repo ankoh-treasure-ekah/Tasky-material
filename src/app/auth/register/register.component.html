@@ -1,0 +1,98 @@
+<mat-sidenav-container [hasBackdrop]="true" class="nav-container" (backdropClick)="sideBarGone(drawer)">
+    <mat-sidenav #drawer [mode]="'push'" class="sideNav">    
+        <nav class="navbarWors">
+            <div class="logoNav">
+                <div class="logoNavFlex">
+
+                    <button mat-mini-fab color="primary" (click)="sideBarGone(drawer)">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                    <h1><span id="portFolio">Tas</span>ky</h1>
+                </div>
+            </div>
+            <ul class="navLinks">
+                    <li class="navItem"><a routerLink="/" href="Home" class="navLink">Home</a></li>
+                    <li class="navItem"><a href="Contact" class="navLink">Contact</a></li>
+                    <li class="navItem"><a href="About" class="navLink">About</a></li>
+                    <li class="navItem"><a href="Portfolio" class="navLink">Portfolio</a></li>
+                    <li class="navItem"><a class="navLink">
+                        notification
+                    </a></li>
+        
+            </ul>
+            <ul class="login-nav">
+                <li *ngIf="!userIn" class="login"><a href="login" routerLink="/login">Login</a></li>
+                <li *ngIf="!userIn" class="sign-up"><a href="sign up" routerLink="/signup">Sign up</a></li>
+            </ul>
+            <!-- <div *ngIf="userIn" class="user-pane">
+                <p class="user-name"> {{userName}} </p>
+                <button mat-raised-button color="primary" (click)="logout($event)" class="logout-btn">Logout</button>
+            </div> -->
+        
+        
+        </nav>
+    </mat-sidenav>
+    <mat-sidenav-content > 
+        <app-navbar [sideNavEnabled]="sideBarEnabled" (sideNav)="sideNavToggle($event, drawer)"></app-navbar>
+        
+        <section class="auth-container">
+        
+            <form [ngClass]="{'Xsmall': Xsmall, 'Small': Small}" class="form" #formdata="ngForm" (submit)="register(formdata)" [formGroup]="registerForm">
+
+                <!-- <input type="text" name = "username" class="form-controls" placeholder="Username"> -->
+                <mat-form-field appearance="fill">
+                    <mat-label>Username</mat-label>
+                    <input type="text" placeholder="username" matInput required formControlName="username">
+                    <button type="button" matSuffix  mat-icon-button>
+
+                        <mat-icon color="primary"> person_pin</mat-icon>
+                    </button>
+                    <mat-error>{{userNameValid()}}</mat-error>
+                </mat-form-field>
+        
+        
+                <!-- <input type="text" name="email"  class="form-controls" placeholder="Email"> -->
+                <mat-form-field appearance="fill">
+                    <mat-label>email</mat-label>
+                    <input type="text" placeholder="pat@example.com" matInput required formControlName="email">
+                    <button type="button" matSuffix  mat-icon-button>
+
+                        <mat-icon color="primary"> email</mat-icon>
+                    </button>
+                    <mat-error>{{emailValid()}}</mat-error>
+                </mat-form-field>
+        
+        
+                <!-- <input type="password" name="password"  class="form-controls" placeholder="Password"> -->
+                <mat-form-field>
+                    <mat-label>password</mat-label>
+                    <input [type]="hidePass ? 'password' : 'text'" placeholder="password" matInput required formControlName="password">
+                    <button color="primary" mat-icon-button matSuffix (click)="hidePass = !hidePass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePass">
+                        <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <button type="button" matSuffix  mat-icon-button (click)="generatePass()">
+                        <mat-icon color="primary">key</mat-icon>
+                    </button>
+                    <mat-error>{{passwordValid()}}</mat-error>
+                </mat-form-field>
+        
+                <button mat-raised-button color="primary" type="submit" class="submit-btn">Register</button>
+                <p style=" width: 80%; color: red;  line-height: 1.2rem;">{{error}}</p>
+        
+            </form>
+
+            <p class="info">you can also sign in with:</p>
+            <button mat-raised-button color="accent" (click)="Xsmall || Small ? googleSignInRedirect() : googleSignin()">
+                Google
+                <i matSuffix style="font-size: 1rem; color: black;" class="fa-brands fa-google"></i>
+                <!-- <mat-icon color="primary">explore</mat-icon> -->
+            </button>
+        </section>
+        
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>
+
+<app-footer></app-footer>
+
+

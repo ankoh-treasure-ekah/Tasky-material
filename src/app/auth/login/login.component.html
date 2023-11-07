@@ -1,0 +1,78 @@
+<mat-sidenav-container [hasBackdrop]="true" class="nav-container" (backdropClick)="sideBarGone(drawer)">
+    <mat-sidenav #drawer [mode]="'push'" class="sideNav">    
+        <nav class="navbarWors">
+            <div class="logoNav">
+                <div class="logoNavFlex">
+
+                    <button mat-mini-fab color="primary" (click)="sideBarGone(drawer)">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                    <h1><span id="portFolio">Tas</span>ky</h1>
+                </div>
+            </div>
+            <ul class="navLinks">
+                    <li class="navItem"><a routerLink="/" href="Home" class="navLink">Home</a></li>
+                    <li class="navItem"><a href="Contact" class="navLink">Contact</a></li>
+                    <li class="navItem"><a href="About" class="navLink">About</a></li>
+                    <li class="navItem"><a href="Portfolio" class="navLink">Portfolio</a></li>
+                    <li class="navItem"><a class="navLink">
+                        notification
+                    </a></li>
+        
+            </ul>
+            <ul class="login-nav">
+                <li *ngIf="!userIn" class="login"><a href="login" routerLink="/login">Login</a></li>
+                <li *ngIf="!userIn" class="sign-up"><a href="sign up" routerLink="/signup">Sign up</a></li>
+            </ul>
+            <!-- <div *ngIf="userIn" class="user-pane">
+                <p class="user-name"> {{userName}} </p>
+                <button mat-raised-button color="primary" (click)="logout($event)" class="logout-btn">Logout</button>
+            </div> -->
+        
+        
+        </nav>
+    </mat-sidenav>
+    <mat-sidenav-content > 
+        <mat-progress-bar *ngIf="loader" mode="indeterminate"></mat-progress-bar>
+        <app-navbar [sideNavEnabled]="sideBarEnabled" (sideNav)="sideNavToggle($event, drawer)"></app-navbar>
+        
+        <div class="login-container">
+            <form [ngClass]="{'Xsmall': Xsmall, 'Small': Small}" #formData="ngForm" (ngSubmit)="login(formData)" class="form" [formGroup]="registerForm">
+                <!-- <input [(ngModel)]="email" type="text" name="email" class="form-input" placeholder="email"> -->
+                <mat-form-field hintLabel="email" required color="primary" appearance="fill">
+                    <mat-label>email</mat-label>
+                    <input placeholder="pat@example.com" matInput required  name="emailValu" formControlName="emailValu" >
+                    <button type="button" matSuffix  mat-icon-button>
+
+                        <mat-icon color="primary"> email</mat-icon>
+                    </button>
+                    <mat-error>{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+        
+        
+                <mat-form-field hintLabel="password">
+                    <mat-label>password</mat-label>
+                    <input [type]="hidePass ? 'password' : 'text'" placeholder="password" matInput required name="password" formControlName="passwordValu">
+                    <button type="button" color="primary" mat-icon-button matSuffix (click)="hidePass = !hidePass" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePass">
+                        <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error>{{getPassErroMessage()}}</mat-error>
+                </mat-form-field>
+                
+        
+                <button type="submit" mat-raised-button color="primary" class="submit">Login</button>
+                <p style="color: red; position: absolute; top: -70px; line-height: 1.2rem;">{{error}}</p>
+        
+            </form>
+            <p class="info">you can also sign in with:</p>
+            <button mat-raised-button color="accent" (click)="Xsmall || Small ? googleSignInRedirect() : googleSignin()">
+                Google
+                <i matSuffix style="font-size: 1rem; color: black;" class="fa-brands fa-google"></i>
+                <!-- <mat-icon color="primary">explore</mat-icon> -->
+            </button>
+        </div>
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>
+
+<app-footer></app-footer>

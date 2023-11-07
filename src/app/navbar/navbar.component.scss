@@ -1,0 +1,159 @@
+.navbarWors {
+    width: 100%;
+    background: black;
+    // height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+
+    .login-nav {
+        padding-right: 2rem;
+
+        li {
+            list-style-type: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: inline-block;
+            padding: 1.2rem;
+
+            a {
+                text-decoration: none;
+                color: white;
+
+                &:hover {
+                    color:rgb(22, 181, 22);
+                }
+            }
+
+            
+        }
+    }
+
+    .logoNav {
+        padding-top: 1rem;
+        padding-left: 2rem;
+        font-size: 1.1rem;
+        display: flex;
+        gap: 2rem;
+
+        #portFolio {
+            color: rgb(22, 181, 22);
+        }
+
+    }
+
+    .noNavLogo {
+        visibility: hidden;
+    }
+
+    .navLinks {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+        .navItem {
+            font-size: 1.1rem;
+            list-style: none;
+            margin: 0rem 2rem;
+            cursor: pointer;
+
+            .navLink {
+                text-decoration: none;
+                color: white;
+                text-transform: capitalize;
+                
+                &:hover {
+                    color:rgb(22, 181, 22);
+                }
+
+            }
+        }
+
+    }
+
+    .user-pane {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-right: 2rem;
+        align-items: center;
+        
+        .userImage {
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
+            outline: none;
+            cursor:default;
+            background: white;
+            border: none;
+            // display: flex;
+            // justify-content: center;
+            // align-items: center;
+            border-radius: 50%;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .userImageFab {
+            width: 30px;
+            height: 30px;
+            background-color: white;
+        }
+
+        p.user-name {
+            padding-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        // button.logout-btn {
+        //     padding: 1rem;
+        //     // background-color: rgb(22, 181, 22);
+        //     border-radius: 1rem;
+        //     color: white;
+        //     transition: all 0.5s ease;
+        //     border: none;
+        //     outline: none;
+        //     cursor: pointer;
+
+            
+
+
+        // }
+    }
+}
+
+.navbarWors.Small {
+    .logoNav {
+        padding-left: 1rem;
+        gap: 1rem;
+    }
+    .login-nav {
+        padding-right: 1rem;
+        white-space: nowrap;
+
+        li {
+            padding: 0.5rem;
+         }
+    }
+}
+
+mat-drawer {
+    width: 50vw;
+}
+
+@media (max-width: 889px) {
+    .navLinks {
+        display: none;
+    }
+}
+
+
+
+
+
+
+

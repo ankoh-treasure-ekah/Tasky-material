@@ -1,0 +1,42 @@
+section.main-section {
+    margin-top: 50rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: flex;
+    width: 1119px;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+
+    p.main-content-text {
+        width: 40%;
+        font-size: 2rem;
+        word-wrap: break-word;
+        
+    }
+
+    .main-img {
+        width: 40%;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+section.Small {
+    flex-direction: column;
+
+    p.main-content-text {
+        width: 80%;
+    }
+
+    .main-img {
+        width: 80%;
+    }
+
+}
+

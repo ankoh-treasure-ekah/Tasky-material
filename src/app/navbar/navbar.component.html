@@ -1,0 +1,38 @@
+<nav class="navbarWors" [ngClass]="{'Small': Small}">
+    <div class="logoNav" [ngClass]="{'noNavLogo': sideNavEnabled}">
+        <button *ngIf="!navLinks" mat-mini-fab color="primary" (click)="openDrawer()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1><span id="portFolio">Tas</span>ky</h1>
+    </div>
+    <ul class="navLinks" *ngIf="navLinks">
+            <li class="navItem"><a routerLink="/" href="Home" class="navLink">Home</a></li>
+            <li class="navItem"><a href="Contact" class="navLink">Contact</a></li>
+            <li class="navItem"><a href="About" class="navLink">About</a></li>
+            <li class="navItem"><a href="Portfolio" class="navLink">Portfolio</a></li>
+            <li class="navItem"><a class="navLink">
+                notification
+            </a></li>
+
+    </ul>
+    <ul class="login-nav">
+        <li *ngIf="!userIn" class="login"><a href="login" routerLink="/login">Login</a></li>
+        <li *ngIf="!userIn" class="sign-up"><a href="sign up" routerLink="/signup">Sign up</a></li>
+    </ul>
+    <div *ngIf="userIn" class="user-pane">
+
+        <div *ngIf="userImg" class="userImage"
+            matTooltip="user profile" (click)="openuserDialog()">
+            <!-- <img [src]="userImg" alt="image"> -->
+            <img *ngIf="userImg" [src]="userImg" referrerpolicy="no-referrer">
+            <!-- <mat-icon *ngIf="userImg" style="color: white;">person</mat-icon> -->
+        </div>
+        <button *ngIf="!userImg" class="userImageFab" mat-mini-fab>
+            <mat-icon style="color: black;">person</mat-icon>
+        </button>
+        <p class="user-name" *ngIf="!Small"> {{userName}} </p>
+        <button mat-raised-button color="primary" (click)="logout($event)" class="logout-btn">Logout</button>
+    </div>
+
+</nav>
+

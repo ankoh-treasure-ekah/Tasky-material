@@ -1,0 +1,15 @@
+
+
+<div [ngSwitch]="role">
+    <div *ngSwitchCase="'user'">Welcome User!</div>
+    <div *ngSwitchCase="'admin'">
+        <router-outlet></router-outlet>
+    </div>
+    <div *ngSwitchDefault>
+        You are not authorised to view this page!
+    </div>
+
+</div>
+
+
+

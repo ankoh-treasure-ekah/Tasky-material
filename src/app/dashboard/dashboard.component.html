@@ -1,0 +1,59 @@
+<mat-sidenav-container [hasBackdrop]="true" class="nav-container" (backdropClick)="sideBarGone(drawer)">
+    <mat-sidenav #drawer [mode]="'push'" class="sideNav">    
+        <nav class="navbarWors">
+            <div class="logoNav">
+                <div class="logoNavFlex">
+
+                    <button mat-mini-fab color="primary" (click)="sideBarGone(drawer)">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                    <h1><span id="portFolio">Tas</span>ky</h1>
+                </div>
+            </div>
+            <ul class="navLinks">
+                    <li class="navItem"><a routerLink="/" href="Home" class="navLink">Home</a></li>
+                    <li class="navItem"><a href="Contact" class="navLink">Contact</a></li>
+                    <li class="navItem"><a href="About" class="navLink">About</a></li>
+                    <li class="navItem"><a href="Portfolio" class="navLink">Portfolio</a></li>
+                    <li class="navItem"><a class="navLink">
+                        notification
+                    </a></li>
+        
+            </ul>
+            <ul class="login-nav">
+                <li *ngIf="!userIn" class="login"><a href="login" routerLink="/login">Login</a></li>
+                <li *ngIf="!userIn" class="sign-up"><a href="sign up" routerLink="/signup">Sign up</a></li>
+                <p *ngIf="userIn" >{{email}}</p>
+                <button *ngIf="userIn" mat-raised-button color="primary">Logout</button>
+
+            </ul>
+        
+        
+        </nav>
+    </mat-sidenav>
+    <mat-sidenav-content > 
+        <app-navbar [userImg]="userImg" [sideNavEnabled]="sideBarEnabled" (sideNav)="sideNavToggle($event, drawer)"></app-navbar>
+
+        <!-- <app-navbar [userName]="email" [userIn]="userIn"></app-navbar> -->
+        <section class="dashboard">
+        
+            <h1>Welcome To your Dashboard</h1>
+            
+            <p>here you can view your tasks by clicking the view tasks Button on your left or 
+                add a task by clicking on the add task button on your right
+            </p>
+            
+            <div class="task-btns">
+                <button mat-raised-button color="primary" (click)="viewTask()" class="view-tasks">View Tasks</button>
+                <button mat-raised-button color="accent" routerLink="/dashboard/add-task" class="add-task">Add Task</button>
+            </div>
+            <div class="myTasks">
+                <router-outlet></router-outlet>
+            </div>
+        </section>
+        <app-footer></app-footer>
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>
+
+
